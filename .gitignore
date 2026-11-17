@@ -1,0 +1,9 @@
+# Only the site goes to GitHub: sherikkon-site/ (source) and deploy/ (minified upload copy)
+.claude/
+10k-websites/
+originals/
+index.before-content-restore.html
+design-package.md
+*.zip
+.DS_Store
+Thumbs.db
