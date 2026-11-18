@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Консалтинг и Тренинги для Бизнеса | Sherikkon Consulting</title>
 <meta name="description" content="Профессиональные услуги консалтинга, корпоративные тренинги и разработку бизнес-стратегий для бизнеса. Работаем на узб, рус, тадж, анг языках">
-<meta name="theme-color" content="#DEE0E4">
+<meta name="theme-color" content="#CBCED3">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -12 76 64'%3E%3Crect x='-3' y='-12' width='76' height='64' rx='16' fill='%23EBF1F6'/%3E%3Cpath fill='%23095486' d='M20.3 15.9h-2.2c-3.9-.1-4.2-.1-5-.3-2-.5-3.2-1.8-3.2-3.8 0-3.1 1.9-3.8 5-4.1 1.3-.1 3.9-.1 6.6-.2 1 0 2.4 0 4.3 0 .7 0 .8 0 1.3 0 2 0 3.3.1 4.6.2.5.1.7.1.8.1.6.1 1.5.3 2.2 1.1.8.9.9 2 .9 2.4h10c0-.7 0-1.4-.1-1.9-.2-3.5-1.1-5.2-3.1-6.6C40.3 1.5 37.8 1 30.5.9 28.5.9 26.1.8 23.1.8 14.6.8 10 1.1 7.1 1.9 1.8 3.2 0 5.8 0 12.4c0 5 1.1 7.8 3.6 9.2 2.4 1.2 5.3 1.6 12.3 1.6h10.8c3 0 4.6 0 5.5.1 1.1.1 1.5.2 2.2.5 1.6.6 2.6 2 2.6 4 0 .6-.1 1-.2 1.4-.4.8-1.1 1.4-1.6 1.7-.8.6-1.6.7-2.4.9-1.7.2-3.5.3-5.7.3-2 0-3.9 0-5.4 0-3.1 0-7.1-.1-8.3-.7-1.7-.7-2.2-1.7-2.3-3.7H.1v1.1c0 4.3 1 7 3.2 8 3.3 1.7 6.3 1.9 19.7 1.9 8.1 0 14.2-.4 17.1-1 4.4-.9 6.5-3.1 7-7.6.1-.9.2-2 .2-3.2 0-7.3-2.6-10.3-9.6-10.6-1.1-.1-3.4-.1-5.4-.2-1.4 0-2.5-.1-3-.1h-9.2z'/%3E%3Cpath fill='%23F6882B' d='M58.5 24.5c0 2.8-.7 4.1-2.4 4.7-1.4.6-2.5.7-7.6.8-.7 5.4-3.2 8-8.3 9.2-.3.1-.8.1-1.4.2h4.4c7.9 0 12.5-.1 14.9-.3 6.1-.5 9.2-2 10.8-5.3.8-1.7 1-3.6 1-9.3H58.5zM47 9.3c10.1 0 10.9.3 11.2 4.6h11.4v-1.2c0-5.7-1.5-9.2-4.7-10.7C61.6.3 58.4 0 43.8 0h-3.9c1.3.3 2.2.8 3.1 1.4 2.6 1.7 3.6 3.8 4 7.9z'/%3E%3C/svg%3E">
 <!-- DEPLOY STEP: patch og:url and og:image with the live absolute URL before zipping -->
 <meta property="og:type" content="website">
@@ -88,8 +88,6 @@ button{font:inherit;color:inherit}
 /* dark rim: the logo's blue, deepened, not black. Strongest where light would catch the edge; a thin white line just inside keeps it glass */
 .glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.4px;pointer-events:none;z-index:2;
   background:
-    /* a thin rainbow where light disperses along the bottom edge, like real glass */
-    linear-gradient(90deg,rgba(255,255,255,0) 38%,rgba(255,140,170,.75) 46%,rgba(255,214,120,.75) 52%,rgba(120,220,200,.75) 58%,rgba(120,170,255,.75) 64%,rgba(255,255,255,0) 72%) 0 100%/100% 18% no-repeat,
     linear-gradient(135deg,rgba(7,70,112,.85) 0%,rgba(9,84,134,.45) 30%,rgba(9,84,134,.26) 52%,rgba(9,84,134,.45) 72%,rgba(7,70,112,.8) 100%);
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
 .glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;opacity:0;transition:opacity .6s var(--ease-out);
@@ -159,9 +157,25 @@ button{font:inherit;color:inherit}
 @media (max-width:420px){.brand small{display:none}.brand b{font-size:15px}.langs button{min-width:40px;padding:4px 7px}}
 
 /* ---------- hero ---------- */
-.hero{position:relative;height:500vh}
+.hero{position:relative;height:100vh;height:100svh}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-#scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+/* hero: panes of glass in 3D. The container gives them one shared perspective */
+.hpanes{position:absolute;inset:0;pointer-events:none;perspective:1400px;perspective-origin:60% 45%}
+.hpane.glass{-webkit-backdrop-filter:none;backdrop-filter:none;position:absolute;left:0;top:0;border-radius:clamp(22px,2.4vw,34px);opacity:0;visibility:hidden;transform-origin:50% 50%;will-change:transform,opacity;backface-visibility:hidden;overflow:hidden}
+.hpane.glass:not(.tint-b):not(.tint-o){background:linear-gradient(155deg,rgba(255,255,255,.56) 0%,rgba(255,255,255,.30) 58%,rgba(255,255,255,.44) 100%)}
+.hpane.tint-b{background:linear-gradient(150deg,rgba(120,178,218,.50) 0%,rgba(9,84,134,.20) 60%,rgba(255,255,255,.22) 100%)}
+.hpane.tint-o{background:linear-gradient(150deg,rgba(255,206,160,.55) 0%,rgba(246,136,43,.22) 60%,rgba(255,255,255,.22) 100%)}
+/* the light band is its own layer and only slides (transform), so the glass is not repainted for it */
+.hpane>.sheen{position:absolute;top:0;bottom:0;left:0;width:260%;z-index:1;pointer-events:none;opacity:0;will-change:transform,opacity;background:linear-gradient(105deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.55) 48%,rgba(255,255,255,0) 60%)}
+.hpane-logo{position:absolute!important;left:50%;top:50%;width:62%;opacity:0;transform:translate(-50%,-50%)}
+.hpane-logo svg{display:block;width:100%;height:auto;filter:drop-shadow(0 8px 16px rgba(11,43,69,.28))}
+/* the two texts sit apart: the first top-left, the second bottom-right; both drift with the scroll */
+.band.b1{top:clamp(120px,21vh,220px);left:50%;right:auto;width:min(1120px,90vw);transform:translateX(-50%);text-align:center}
+.band.b1 .bt{font-size:clamp(34px,3.7vw,60px)}
+.band.b1 .bs{max-width:62ch;margin-inline:auto}
+.band.b4{left:50%;right:auto;top:auto;bottom:clamp(24px,calc(43vh - 240px),15vh);width:min(1120px,90vw);transform:translateX(-50%);text-align:center}
+.band.b4 .bt{font-size:clamp(34px,3.7vw,60px);margin-inline:auto}
+.band.b4 .cta-row{justify-content:center}
 .bands{position:absolute;inset:0;pointer-events:none}
 .band{--k:0;position:absolute;left:max(20px,calc((100vw - var(--wrap)) / 2));top:50%;width:min(var(--bandw,600px),48vw);transform:translateY(-44%);opacity:0;isolation:isolate;text-shadow:var(--halo)}
 .band.live{pointer-events:auto}
@@ -195,7 +209,11 @@ button{font:inherit;color:inherit}
 @keyframes wheel{0%{transform:translateY(0);opacity:1}70%{transform:translateY(10px);opacity:0}100%{transform:translateY(0);opacity:0}}
 @media (max-width:720px),(orientation:portrait) and (max-width:1024px){
   .band{left:16px;right:16px;width:auto;top:auto;bottom:max(84px,10vh);transform:none}
-  .band.b4{bottom:max(40px,5vh)}
+  .band.b4{bottom:max(40px,14vh);left:16px;right:16px;width:auto;transform:none;text-align:center}
+  .band.b4 .bt{font-size:clamp(30px,8vw,44px)}
+  .band.b4 .cta-row{justify-content:center}
+  .band.b1{top:92px;bottom:auto;left:16px;right:16px;width:auto;transform:none;text-align:center}
+  .band.b1 .bt{font-size:clamp(30px,8vw,44px)}
   .band::before{inset:-14% -8%}
   .band .bt{font-size:clamp(32px,8.6vw,48px)}
   .cue{bottom:18px}
@@ -208,7 +226,8 @@ button{font:inherit;color:inherit}
 @media (orientation: landscape) and (pointer: coarse) and (max-height: 560px){
   .hero{height:auto}.stage{position:relative;height:auto;min-height:100svh;padding:96px max(20px,env(safe-area-inset-left)) 44px}
   .bands{position:relative;inset:auto}
-  .band{display:none}.band.b4{display:block;position:relative;left:auto;top:auto;transform:none;width:min(560px,56vw);opacity:1;--k:1;pointer-events:auto}
+  .hpanes{display:none}
+  .band{display:none}.band.b4{display:block;position:relative;left:auto;top:auto;right:auto;bottom:auto;text-align:left;transform:none;width:min(560px,56vw);opacity:1;--k:1;pointer-events:auto}
   .band.b4 .bt{font-size:clamp(30px,5.4vw,42px)}.cue{display:none}
 }
 
@@ -220,7 +239,7 @@ main > .sec{content-visibility:auto;contain-intrinsic-size:auto 1100px}
 html.cv-all main > .sec{content-visibility:visible}
 .hero-end{position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none}
 /* cards lean toward the pointer, like a pane of glass picked up by its corner */
-.results,.res-grid,.team{perspective:1400px}
+.results,.res-grid,.team,.stack,.pains,#pains > .wrap,.explorer,.projects,.plist,.contact,#consult .cs-call{perspective:1400px}
 /* section dots: where you are, and a shortcut to any block */
 .dots{position:fixed;z-index:40;right:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:2px;padding:8px 5px;border-radius:999px}
 .dots button{position:relative;width:26px;height:26px;border:0;padding:0;background:none;cursor:pointer;display:grid;place-items:center;border-radius:50%}
@@ -355,7 +374,13 @@ html.cv-all main > .sec{content-visibility:visible}
 @keyframes ansin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 
 /* contact */
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:start}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(20px,3vw,40px);align-items:stretch}
+/* heading and intro run across the top; the contacts card and the form sit side by side, same top, same height */
+.contact > div:first-child{display:contents}
+.contact .h2,.contact .lede{grid-column:1 / -1}
+.contact .cinfo{grid-column:1;margin-top:clamp(24px,3vw,36px)}
+.contact .form{grid-column:2;margin-top:clamp(24px,3vw,36px);display:flex;flex-direction:column}
+.contact .form .social{margin-top:auto;padding-top:18px}
 .direct{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .direct a{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:500}
 .direct svg{width:20px;height:20px;color:var(--blue)}
@@ -387,6 +412,7 @@ html.cv-all main > .sec{content-visibility:visible}
 }
 @media (max-width:820px){
   .pains-grid,.steps,.promises,.projects,.plist,.faq,.contact,.results{grid-template-columns:1fr}
+  .contact .cinfo,.contact .form{grid-column:1}
   .reveal.in .pain.rv:nth-child(2),.reveal.in .pain.rv:nth-child(3){transform:none}
   .pains-foot{margin-top:40px}
   .steps{gap:34px;padding-left:96px}
@@ -408,18 +434,19 @@ html.cv-all main > .sec{content-visibility:visible}
 .nav.glass,.sheet.glass{background:linear-gradient(155deg,rgba(255,255,255,.7),rgba(255,255,255,.48) 55%,rgba(255,255,255,.6));-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%)}
 .person .plate.glass{background:linear-gradient(155deg,rgba(250,251,252,.88),rgba(238,240,243,.78) 55%,rgba(246,247,249,.86));-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
 .person .ph,.bio-top img{background:linear-gradient(165deg,#F2F3F5 0%,#D6D9DE 100%)!important}
-.scard.glass{background:linear-gradient(155deg,rgba(248,249,251,.86),rgba(236,238,242,.74) 55%,rgba(244,245,248,.82));-webkit-backdrop-filter:blur(12px) saturate(140%);backdrop-filter:blur(12px) saturate(140%)}
+/* the stack is the same clear glass as the rest; a card that gets covered fades by half a tone instead */
+.scard.glass{-webkit-backdrop-filter:blur(3px) saturate(150%) brightness(1.06);backdrop-filter:blur(3px) saturate(150%) brightness(1.06);opacity:calc(1 - var(--d,0) * .55)}
 .glass.tint-blue{background:linear-gradient(155deg,rgba(120,175,215,.34) 0%,rgba(255,255,255,.12) 50%,rgba(255,255,255,.22) 100%)}
 /* background: a still studio surface, light at the top left falling to graphite at the bottom right, with a thin grid.
    Nothing blurred, nothing moving: the glass above it is what carries the life. */
 .env{background:
-  radial-gradient(110% 90% at 12% 6%,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 55%),
-  linear-gradient(150deg,#ECEDF0 0%,#DEE0E4 28%,#C4C8CF 55%,#959BA5 80%,#6A707A 100%)}
+  radial-gradient(110% 90% at 12% 6%,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 55%),
+  linear-gradient(150deg,#D9DBDF 0%,#CBCED3 28%,#B1B5BD 55%,#868C96 80%,#5E646E 100%)}
 .env::before{content:"";position:absolute;inset:0;
   background-image:linear-gradient(to right,rgba(22,26,34,.34) 1px,transparent 1px),linear-gradient(to bottom,rgba(22,26,34,.34) 1px,transparent 1px);
   background-size:clamp(220px,27vw,400px) clamp(220px,27vw,400px);background-position:calc(50% + 6vw) 46%}
-:root{--halo:0 1px 0 rgba(255,255,255,.5),0 0 22px rgba(226,228,232,.95),0 0 46px rgba(226,228,232,.8)}
-.band::before{background:radial-gradient(closest-side,rgba(229,231,235,.88) 0%,rgba(229,231,235,.62) 55%,rgba(229,231,235,0) 100%)}
+:root{--halo:0 1px 0 rgba(255,255,255,.5),0 0 22px rgba(208,211,216,.95),0 0 46px rgba(208,211,216,.8)}
+.band::before{background:radial-gradient(closest-side,rgba(210,213,218,.88) 0%,rgba(210,213,218,.62) 55%,rgba(210,213,218,0) 100%)}
 
 /* ---------- problems: the question holds still, the problems pile up on top of each other ---------- */
 .pains{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,5vw,90px);align-items:start}
@@ -431,8 +458,8 @@ html.cv-all main > .sec{content-visibility:visible}
   display:flex;flex-direction:column;justify-content:space-between;gap:30px;transform-origin:50% 0;will-change:transform}
 /* the scroll distance between cards lives in plain spacers, so every card's own box stays tight */
 .stack-gap{height:30vh}
-.scard .q{margin:0;font-weight:800;font-size:clamp(23px,2.1vw,31px);line-height:1.18;letter-spacing:-.01em;color:var(--ink);transition:opacity .2s linear;opacity:calc(1 - var(--d,0) * .55)}
-.sico{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;color:#B85A10;background:linear-gradient(150deg,rgba(255,255,255,.9),rgba(246,136,43,.18));box-shadow:inset 0 1px 0 #fff,0 6px 16px -6px rgba(184,90,16,.4);opacity:calc(1 - var(--d,0) * .5)}
+.scard .q{margin:0;font-weight:800;font-size:clamp(23px,2.1vw,31px);line-height:1.18;letter-spacing:-.01em;color:var(--ink);transition:opacity .2s linear;opacity:calc(1 - var(--d,0) * 1.5)}
+.sico{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;color:#B85A10;background:linear-gradient(150deg,rgba(255,255,255,.9),rgba(246,136,43,.18));box-shadow:inset 0 1px 0 #fff,0 6px 16px -6px rgba(184,90,16,.4);opacity:calc(1 - var(--d,0) * 1.5)}
 .sico svg{width:30px;height:30px}
 .verdict{margin:clamp(40px,7vh,80px) 0 0;padding:clamp(24px,3vw,38px) clamp(24px,3vw,44px);font-weight:500;font-size:clamp(21px,2vw,28px);line-height:1.4;color:var(--ink)}
 @media (max-width:900px){
@@ -661,13 +688,13 @@ body.paused *,body.paused *::before,body.paused *::after,
 <main id="main" tabindex="-1">
   <section class="hero" id="top" aria-label="Sherikkon Consulting">
     <div class="stage">
-      <svg id="scene" aria-hidden="true" focusable="false"></svg>
+      <div class="hpanes" id="hpanes" aria-hidden="true"><div class="hpane glass tint-b"><i class="sheen"></i></div><div class="hpane glass tint-o"><i class="sheen"></i></div><div class="hpane glass"><i class="sheen"></i></div><div class="hpane glass top"><i class="sheen"></i><div class="hpane-logo"><svg viewBox="0 0 70 40"><use href="#lg-b" fill="url(#g-blue)"/><use href="#lg-b" fill="url(#g-sheen)"/><use href="#lg-b" fill="none" stroke="#053A5E" stroke-opacity=".85" stroke-width=".34" stroke-linejoin="round"/><use href="#lg-o3" fill="url(#g-orange)"/><use href="#lg-o3" fill="url(#g-sheen)"/><use href="#lg-o3" fill="none" stroke="#A4500F" stroke-opacity=".85" stroke-width=".34" stroke-linejoin="round"/><use href="#lg-o2" fill="url(#g-orange)"/><use href="#lg-o2" fill="url(#g-sheen)"/><use href="#lg-o2" fill="none" stroke="#A4500F" stroke-opacity=".85" stroke-width=".34" stroke-linejoin="round"/><use href="#lg-o1" fill="url(#g-orange)"/><use href="#lg-o1" fill="url(#g-sheen)"/><use href="#lg-o1" fill="none" stroke="#A4500F" stroke-opacity=".85" stroke-width=".34" stroke-linejoin="round"/></svg></div></div></div>
       <div class="bands">
-        <div class="band b1 fx-scatter" data-a="0" data-b=".46" data-ramp=".06">
+        <div class="band b1 fx-scatter" data-a="0" data-b=".36" data-ramp=".06" data-fade=".05">
           <h1 class="bt split" data-t="h.t1">10+ лет опыта работы с малым и средним бизнесом</h1>
           <p class="bs" data-t="h.s1">Обеспечьте стабильный рост и эффективность вашего бизнеса благодаря нашему опыту и профессионализму</p>
         </div>
-        <div class="band b4 fx-rise" data-a=".5" data-b="1" data-ramp=".2" data-fade=".07">
+        <div class="band b4 fx-rise" data-a=".6" data-b="1" data-ramp=".2" data-fade=".07">
           <p class="bt split" data-t="h.t4">Начните развитие вашего бизнеса с бесплатной консультации</p>
           <div class="cta-row">
             <a class="btn btn-accent" href="#contact" data-t="h.cta">Получить бесплатную консультацию</a>
@@ -1202,165 +1229,208 @@ function updateCaptions(p){
     if (Math.abs(k - band.k) > 0.008 || (k === 1 && band.k !== 1) || (k === 0 && band.k !== 0)) { band.el.style.setProperty('--k', k.toFixed(3)); band.k = k; }
     const live = op > 0.6;
     if (live !== band.live) { band.el.classList.toggle('live', live); band.live = live; }
+    // each text drifts with the scroll, in step with the glass: the first rises away, the second rises into place
+    const ty = i === 0 ? -p * 0.17 * innerHeight : (1 - p) * 0.14 * innerHeight;
+    if (Math.abs(ty - (band.ty ?? 1e9)) > 0.4) { band.el.style.translate = `0 ${ty.toFixed(1)}px`; band.ty = ty; }
   });
 }
 
-/* ================= hero scene: the logo assembles ================= */
-const NS = 'http://www.w3.org/2000/svg';
-const scene = $('#scene');
+/* ================= hero scene: glass layers =================
+   Four panes of glass come up out of the depth from different sides, gather into an exploded,
+   tilted stack (like a device seen in layers), then fold flat into one panel facing you, with the
+   logo surfacing on the top pane. Plain DOM and CSS 3D: the panes are the site's own .glass. */
 const stage = $('.stage');
 const hero = $('.hero');
 const cue = $('.cue');
-const mk = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
-const PIECES = [
-  { id:'lg-o3', grad:'g-orange', c:[27.4,20.0], win:[.02,.60] },
-  { id:'lg-o2', grad:'g-orange', c:[54.7,7.0],  win:[.10,.68] },
-  { id:'lg-o1', grad:'g-orange', c:[54.4,32.0], win:[.18,.76] },
-  { id:'lg-b',  grad:'g-blue',   c:[23.7,19.8], win:[.30,.76] }
-];
-const glowB = mk('circle', { fill:'url(#g-glowb)' }, scene);
-const shardG = mk('g', {}, scene);
-const glow = mk('circle', { fill:'url(#g-glow)', opacity:0 }, scene);
-const markOuter = mk('g', {}, scene);
-const mark = mk('g', { filter:'url(#f-shadow)' }, markOuter);
-PIECES.forEach(pc => {
-  pc.g = mk('g', {}, mark);
-  if (pc.id === 'lg-b') mark.insertBefore(pc.g, mark.firstChild);   // blue sits underneath
-  mk('use', { href:'#' + pc.id, fill:`url(#${pc.grad})`, 'fill-opacity':'.94' }, pc.g);
-  mk('use', { href:'#' + pc.id, fill:'url(#g-sheen)' }, pc.g);
-  // dark rim in each piece's own colour, deepened: blue edges in deep blue, orange edges in burnt orange
-  mk('use', { href:'#' + pc.id, fill:'none', stroke: pc.grad === 'g-blue' ? '#053A5E' : '#A4500F', 'stroke-opacity':'.85', 'stroke-width':'.34', 'stroke-linejoin':'round' }, pc.g);
-});
-const SHARDS = [];
-(() => {
-  const r = rng(42);
-  for (let i = 0; i < 26; i++) {
-    const tint = i % 6 === 0 ? 'o' : i % 4 === 0 ? 'b' : 'w';
-    const el = mk('rect', { rx:4, ry:4,
-      fill: tint === 'o' ? 'rgba(246,136,43,.55)' : tint === 'b' ? 'rgba(95,163,207,.5)' : 'url(#g-shard)',
-      stroke:'rgba(7,70,112,.5)', 'stroke-width':1 }, shardG);
-    SHARDS.push({ el, sx:r(), sy:r(), rot:(r() - .5) * 200, size:14 + r() * 22, a:.02 + r() * .28, len:.4 + r() * .12, opS:.55 + r() * .35 });
-  }
-})();
-let L = null;   // layout
+const panesEl = $('#hpanes');
+const hpanes = $$('.hpane', panesEl);
+const paneLogo = $('.hpane-logo', panesEl);
+let LS = null, sceneP = 0, sceneT0 = performance.now();
+const mixv = (a, b, t) => a + (b - a) * t;
+const easeOut = t => 1 - Math.pow(1 - t, 3);
+
 function layoutScene(){
   const W = stage.clientWidth, H = stage.clientHeight;
-  scene.setAttribute('viewBox', `0 0 ${W} ${H}`);
   const narrow = W <= 720 || (W / H < 0.95);
-  let cx, cy, s;
-  if (narrow) {
-    // fit the mark and its tile grid into the free space between the nav and the final caption
-    const topSafe = 86, b4 = bands[bands.length - 1].el;
-    const bottomSafe = Math.max(topSafe + 160, b4.offsetTop - 16);
-    const gridSpace = 58;
-    const R = bottomSafe - topSafe - gridSpace;
-    s = Math.max(1.6, Math.min(W * 0.66 / 70, R / 40));
-    cx = W / 2; cy = topSafe + 20 * s + Math.max(0, (R - 40 * s) / 2);
-  }
-  else {
-    const inner = Math.min(W, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--wrap')) || 1180);
-    cx = W / 2 + inner * 0.27; cy = H * 0.52; s = Math.min(inner * 0.40, H * 0.60 * 1.75) / 70;
-  }
-  const starts = narrow
-    ? { 'lg-o3':[.16,.22,-55], 'lg-o2':[.84,.2,70], 'lg-o1':[.62,.17,-80] }
-    : { 'lg-o3':[(cx - W * .15) / W, .22,-55], 'lg-o2':[Math.min(.92,(cx + W * .17) / W), .26,70], 'lg-o1':[Math.min(.9,(cx + W * .03) / W), .16,-85] };
-  PIECES.forEach(pc => {
-    const fx = cx + (pc.c[0] - 35) * s, fy = cy + (pc.c[1] - 20) * s;
-    if (pc.id === 'lg-b') { pc.dx = -5; pc.dy = 3.5; pc.rot = -16; }
-    else { const st = starts[pc.id]; pc.dx = (st[0] * W - fx) / s; pc.dy = (st[1] * H - fy) / s; pc.rot = st[2]; }
-  });
-  markOuter.setAttribute('transform', `translate(${(cx - 35 * s).toFixed(2)} ${(cy - 20 * s).toFixed(2)}) scale(${s.toFixed(4)})`);
-  glow.setAttribute('cx', cx); glow.setAttribute('cy', cy); glow.setAttribute('r', 46 * s);
-  glowB.setAttribute('cx', cx - 8 * s); glowB.setAttribute('cy', cy + 6 * s); glowB.setAttribute('r', 40 * s);
-  // shards end on a tidy two-row grid under the mark: chaos becomes a plan
-  const cols = 13, tile = Math.max(11, Math.min(18, s * 1.5)), gap = tile * 0.55;
-  const gw = cols * tile + (cols - 1) * gap;
-  const gy = cy + 20 * s + (narrow ? 18 : Math.max(26, s * 3.4));
-  SHARDS.forEach((sh, i) => {
-    const col = i % cols, row = Math.floor(i / cols);
-    sh.ex = cx - gw / 2 + col * (tile + gap) + tile / 2;
-    sh.ey = gy + row * (tile + gap) + tile / 2;
-    sh.et = tile;
-    sh.x0 = (0.04 + sh.sx * 0.92) * W;
-    sh.y0 = (narrow ? 0.1 + sh.sy * 0.4 : 0.12 + sh.sy * 0.7) * H;
-  });
-  L = { W, H, cx, cy, s, narrow };
-}
-let lastP = -1;
-function renderScene(p, vel){
-  if (!L) return;
-  PIECES.forEach(pc => {
-    const e = easeIO(clamp((p - pc.win[0]) / (pc.win[1] - pc.win[0]), 0, 1));
-    const u = 1 - e;
-    pc.g.setAttribute('transform', `translate(${(u * pc.dx).toFixed(3)} ${(u * pc.dy).toFixed(3)}) rotate(${(u * pc.rot).toFixed(2)} ${pc.c[0]} ${pc.c[1]})`);
-  });
-  SHARDS.forEach(sh => {
-    const e = easeIO(clamp((p - sh.a) / sh.len, 0, 1));
-    const u = 1 - e;
-    const size = sh.et + (sh.size - sh.et) * u;
-    const x = sh.ex + (sh.x0 - sh.ex) * u, y = sh.ey + (sh.y0 - sh.ey) * u;
-    const el = sh.el;
-    el.setAttribute('width', size.toFixed(1)); el.setAttribute('height', size.toFixed(1));
-    el.setAttribute('x', (-size / 2).toFixed(1)); el.setAttribute('y', (-size / 2).toFixed(1));
-    el.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(sh.rot * u).toFixed(1)})`);
-    el.setAttribute('opacity', (0.42 + (sh.opS - 0.42) * u).toFixed(3));
-  });
-  const lock = smoothstep(p, .70, .79);
-  const settle = smoothstep(p, .80, .95);
-  glow.setAttribute('opacity', (0.12 + 0.75 * lock - 0.3 * settle).toFixed(3));
-  glowB.setAttribute('opacity', (0.9 - 0.4 * lock).toFixed(3));
-  // liquid wobble only while moving, at rest the filter is plain
-  const disp = LITE ? 0 : Math.min(2.4, (vel || 0) * 55);
-  if (disp > 0.06) { mark.setAttribute('filter', 'url(#f-liquid)'); $('#f-disp').setAttribute('scale', disp.toFixed(2)); }
-  else if (mark.getAttribute('filter') !== 'url(#f-shadow)') mark.setAttribute('filter', 'url(#f-shadow)');
-  const cueOp = 1 - smoothstep(p, 0, .04);
-  if (Math.abs(cueOp - (cue._op ?? -1)) > .01) { cue.style.opacity = cueOp.toFixed(2); cue._op = cueOp; }
-  lastP = p;
+  // the finished panel fills the free space between the nav and the second text, as large as it fits,
+  // and sits in the middle of it (the panes peeking out above the top one are part of the height)
+  const RATIO = 0.54, PEEK = 0.085, STACK = 1 + 3 * PEEK;
+  const navGap = narrow ? 84 : 96;
+  const b4 = $('.band.b4');
+  const textTop = b4 && b4.offsetHeight ? H - (parseFloat(getComputedStyle(b4).bottom) || 0) - b4.offsetHeight : H * 0.62;
+  const avail = Math.max(120, textTop - (narrow ? 20 : 28) - navGap);
+  const pw = Math.min(narrow ? W * 0.9 : W * 0.56, narrow ? 460 : 860, avail / (RATIO * STACK));
+  const ph = pw * RATIO;
+  const fin = { x: W * 0.5, y: navGap + (avail - ph * STACK) / 2 + ph * 3 * PEEK + ph / 2 };
+  // the exploded stack turns in the middle of the screen; the first text reads over the glass
+  const mid = narrow ? { x: W * 0.5, y: H * 0.64, s: 0.92 } : { x: W * 0.5, y: H * 0.62, s: 0.84 };
+  const far = Math.max(W, H) * 0.34;
+  LS = { W, H, narrow, pw, ph, fin, mid, far, peek: ph * PEEK, gap: ph * 0.30 };
+  hpanes.forEach(el => { el.style.width = pw.toFixed(0) + 'px'; el.style.height = ph.toFixed(0) + 'px'; });
+  panesEl.style.perspectiveOrigin = '50% 45%';
 }
 
-/* ================= the drive: lerp that rests ================= */
+// where each pane comes from: four sides of the depth
+const FROM = [[-0.9, 0.8, 34], [1.0, 0.55, -30], [-0.7, -0.9, -26], [0.85, -0.75, 30]];
+const state = hpanes.map(el => ({ tf: '', o: -1, sx: '', so: -1, sh: el.querySelector('.sheen') }));
+
+function drawScene(){
+  if (!LS) return;
+  const p = sceneP, n = hpanes.length;
+  const t = (performance.now() - sceneT0) / 1000;
+  const fold = easeIO(smoothstep(p, 0.40, 0.78));          // exploded stack -> one flat panel
+  const settled = smoothstep(p, 0.78, 0.95);
+  const turn = smoothstep(p, 0.08, 0.42);                   // the stack slowly turns while you read
+  const floatY = Math.sin(t * 1.1) * 4 * settled, floatR = Math.sin(t * 0.8) * 0.9 * settled;
+  hpanes.forEach((el, i) => {
+    const k = n - 1 - i;                                    // 0 = the top pane
+    const a = easeOut(smoothstep(p, 0.03 + i * 0.045, 0.25 + i * 0.045));   // arrival out of the depth
+    const f = FROM[i];
+    // exploded state: tilted back, layers spread along their normal
+    const sx = LS.mid.x + f[0] * LS.far * (1 - a), sy = LS.mid.y + f[1] * LS.far * (1 - a);
+    const sz = -1100 * (1 - a);
+    const srx = 54 - 30 * (1 - a), sry = f[2] * (1 - a), srz = -34 + 10 * turn;
+    const slz = (1.5 - k) * LS.gap, ss = LS.mid.s;
+    // final state: a stack seen from the front, each lower pane peeking out above the one on top of it
+    const fx = LS.fin.x, fy = LS.fin.y - k * LS.peek + floatY, fs = 1 - k * 0.04;
+    const x = mixv(sx, fx, fold), y = mixv(sy, fy, fold), z = mixv(sz, 0, fold);
+    const rx = mixv(srx, floatR, fold), ry = mixv(sry, 0, fold), rz = mixv(srz, 0, fold);
+    const lz = mixv(slz, 0, fold), s = mixv(ss, fs, fold);
+    const o = a;
+    const tf = `translate3d(${(x - LS.pw / 2).toFixed(1)}px,${(y - LS.ph / 2).toFixed(1)}px,${z.toFixed(1)}px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg) translateZ(${lz.toFixed(1)}px) scale(${s.toFixed(4)})`;
+    const st = state[i];
+    if (tf !== st.tf) { el.style.transform = tf; st.tf = tf; }
+    if (Math.abs(o - st.o) > 0.003) { el.style.opacity = o.toFixed(3); el.style.visibility = o > 0.002 ? 'visible' : 'hidden'; st.o = o; }
+    // light runs across the glass as it turns
+    const shT = 'translateX(' + mixv(24.6, -86, smoothstep(p, 0.05 + i * 0.03, 0.85)).toFixed(1) + '%)';
+    const shO = smoothstep(p, 0.05, 0.2) * (1 - smoothstep(p, 0.78, 0.9));
+    if (shT !== st.sx) { st.sh.style.transform = shT; st.sx = shT; }
+    if (Math.abs(shO - st.so) > 0.003) { st.sh.style.opacity = shO.toFixed(3); st.so = shO; }
+  });
+  const lo = smoothstep(p, 0.70, 0.86);
+  if (Math.abs(lo - (paneLogo._o ?? -1)) > 0.004) {
+    paneLogo.style.opacity = lo.toFixed(3);
+    paneLogo.style.transform = `translate(-50%,-50%) scale(${(0.88 + 0.12 * easeIO(lo)).toFixed(4)})`;
+    paneLogo._o = lo;
+  }
+  const cueOp = 1 - smoothstep(p, 0, .04);
+  if (Math.abs(cueOp - (cue._op ?? -1)) > .01) { cue.style.opacity = cueOp.toFixed(2); cue._op = cueOp; }
+}
+// the drive hands over progress; a light loop lets the finished panel float while the hero is on screen
+function renderScene(p){ sceneP = p; if (!sceneLoopOn) drawScene(); }
+let sceneLoopOn = false, sceneRaf = null;
+function sceneLoop(){
+  sceneRaf = null;
+  if (!sceneLoopOn) return;
+  drawScene();
+  sceneRaf = requestAnimationFrame(sceneLoop);
+}
+function setSceneLoop(on){
+  on = on && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (on === sceneLoopOn) return;
+  sceneLoopOn = on;
+  if (on && !sceneRaf) sceneRaf = requestAnimationFrame(sceneLoop);
+}
+new IntersectionObserver(es => setSceneLoop(es[0].isIntersecting && !document.hidden)).observe(hero);
+document.addEventListener('visibilitychange', () => setSceneLoop(!document.hidden && hero.getBoundingClientRect().bottom > 0));
+
+/* ================= the drive: a motion you scroll through =================
+   At the top of the page scrolling does not move the page: it plays the hero motion at one steady
+   speed, forward or back, for as long as you keep scrolling (wheel, trackpad, finger or keys).
+   The page scrolls on only once the motion has finished; scrolling up at the very top plays it back. */
+const HERO_SECS = 5;          // the whole motion, start to finish, at its one speed
+const HOLD_MS = 240;          // one wheel notch or finger move keeps it playing this long, so a run of them is seamless
 let target = 0, shown = 0, rafId = null, lastTick = 0, heroOnScreen = true, scrubOn = false;
-function heroProgress(){
-  const r = hero.getBoundingClientRect();
-  const range = hero.offsetHeight - innerHeight;
-  return range > 0 ? clamp(-r.top / range, 0, 1) : 1;
+let pDir = 0, pVel = 0, holdUntil = 0, autoDir = 0;
+const atTop = () => scrollY <= 2;
+// does this direction of scrolling belong to the motion rather than the page?
+const heroWants = dir => scrubOn && atTop() && (dir > 0 ? shown < 1 : shown > 0);
+function drive(dir, hold){ pDir = dir; holdUntil = performance.now() + (hold || HOLD_MS); kick(); }
+function finishHero(){
+  autoDir = 0; pVel = 0; holdUntil = 0; shown = target = 1;
+  if (scrubOn) { updateCaptions(1); renderScene(1, 0); }
 }
 function tick(now){
-  const dt = Math.min(100, now - (lastTick || now));
+  const dt = Math.min(64, now - (lastTick || now));
   lastTick = now;
-  const k = smoothOn ? 0.22 : 0.14;   // the page already glides under a mouse, so the scrub follows it more closely
+  const playing = autoDir !== 0 || now < holdUntil;
+  const want = playing ? (autoDir || pDir) / HERO_SECS : 0;
+  // only the start and the stop are eased; in between the pace is constant
+  pVel += (want - pVel) * (1 - Math.pow(1 - 0.14, dt / 16.667));
   const prev = shown;
-  shown += (target - shown) * (1 - Math.pow(1 - k, dt / 16.667));
+  shown = clamp(shown + pVel * dt / 1000, 0, 1);
+  if ((shown === 1 && pVel > 0) || (shown === 0 && pVel < 0)) { pVel = 0; autoDir = 0; holdUntil = 0; }
+  target = shown;
   let loading = false;
   if (loadK < 1) { if (!loadStart) loadStart = now; loadK = clamp((now - loadStart) / 1300, 0, 1); loadK = 1 - Math.pow(1 - loadK, 3); loading = loadK < 1; }
-  const converged = Math.abs(target - shown) < 0.0004;
-  if (converged) shown = target;
   renderScene(shown, Math.abs(shown - prev) * (16.667 / Math.max(dt, 1)));
   updateCaptions(shown);
-  if (converged && !loading) { rafId = null; lastTick = 0; renderScene(shown, 0); }
+  const still = !playing && Math.abs(pVel) < 1e-4;
+  if (still && !loading) { pVel = 0; rafId = null; lastTick = 0; renderScene(shown, 0); }
   else rafId = requestAnimationFrame(tick);
 }
 function kick(){ if (rafId === null && scrubOn) rafId = requestAnimationFrame(tick); }
-function onScroll(){ target = heroProgress(); if (heroOnScreen) kick(); }
-new IntersectionObserver(es => { heroOnScreen = es[0].isIntersecting; if (heroOnScreen) onScroll(); }).observe(hero);
+function onScroll(){ if (!scrubOn) return; updateCaptions(shown); renderScene(shown, 0); }
+new IntersectionObserver(es => { heroOnScreen = es[0].isIntersecting; }).observe(hero);
+
+// wheel and trackpad: registered before the page's own smooth scrolling, which skips handled events
+addEventListener('wheel', e => {
+  if (!scrubOn || e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY) || !e.deltaY) return;
+  if (document.documentElement.classList.contains('bio-on')) return;
+  const dir = e.deltaY > 0 ? 1 : -1;
+  if (!heroWants(dir)) return;
+  e.preventDefault();
+  drive(dir);
+}, { passive: false });
+// touch: the finger plays the motion instead of moving the page
+let touchY = null;
+addEventListener('touchstart', e => { touchY = e.touches.length === 1 ? e.touches[0].clientY : null; }, { passive: true });
+addEventListener('touchmove', e => {
+  if (touchY === null || !scrubOn) return;
+  const y = e.touches[0].clientY, dy = touchY - y;
+  if (Math.abs(dy) < 1) { if (heroWants(1) || heroWants(-1)) e.preventDefault(); return; }
+  touchY = y;
+  const dir = dy > 0 ? 1 : -1;
+  if (!heroWants(dir)) return;
+  e.preventDefault();
+  drive(dir, 200);
+}, { passive: false });
+addEventListener('touchend', () => { touchY = null; }, { passive: true });
+// keys: arrows step, page keys / space / home / end play it through
+addEventListener('keydown', e => {
+  if (!scrubOn || e.altKey || e.ctrlKey || e.metaKey) return;
+  if (e.target.closest && e.target.closest('input,textarea,select,[contenteditable]')) return;
+  if (document.documentElement.classList.contains('bio-on')) return;
+  const fwd = { ArrowDown: 'step', PageDown: 'run', End: 'run', ' ': e.shiftKey ? null : 'run' }[e.key];
+  const back = { ArrowUp: 'step', PageUp: 'run', Home: 'run', ' ': e.shiftKey ? 'run' : null }[e.key];
+  const dir = fwd ? 1 : back ? -1 : 0, how = fwd || back;
+  if (!dir || !heroWants(dir)) return;
+  e.preventDefault();
+  if (how === 'run') { autoDir = dir; kick(); } else drive(dir, 260);
+});
+// in-page links and anything else that moves the page (scrollbar, find-in-page, a restored position) skip the motion
+document.addEventListener('click', e => {
+  const a = e.target.closest && e.target.closest('a[href^="#"]');
+  if (a && a.getAttribute('href') !== '#top' && a.getAttribute('href') !== '#' && scrubOn && shown < 1) finishHero();
+}, true);
+addEventListener('scroll', () => { if (scrubOn && !atTop() && shown < 1) finishHero(); }, { passive: true });
 
 const STATIC_GATES = ['(prefers-reduced-motion: reduce)', '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)'];
 const MQLS = STATIC_GATES.map(q => matchMedia(q));
 function pinHeroFinal(){
-  bands.forEach((b, i) => { const last = i === bands.length - 1; b.el.style.opacity = last ? '1' : '0'; b.el.style.setProperty('--k', last ? '1' : '0'); b.op = -1; b.k = -1; b.el.classList.toggle('live', last); b.live = last; });
+  bands.forEach((b, i) => { const last = i === bands.length - 1; b.el.style.opacity = last ? '1' : '0'; b.el.style.setProperty('--k', last ? '1' : '0'); b.op = -1; b.k = -1; b.el.classList.toggle('live', last); b.live = last; b.el.style.translate = ''; b.ty = undefined; });
   renderScene(1, 0);
 }
 function enableScrub(){
   if (scrubOn) return; scrubOn = true;
-  addEventListener('scroll', onScroll, { passive:true });
   bands.forEach(b => { b.op = -1; b.k = -1; });
-  shown = target = heroProgress();
+  // arriving lower on the page (a link, a restored position) means the motion has already been seen
+  shown = target = (!atTop() || (location.hash && location.hash !== '#top')) ? 1 : 0;
   updateCaptions(shown); renderScene(shown, 0);
   kick();
 }
 function disableScrub(){
   if (!scrubOn) return; scrubOn = false;
-  removeEventListener('scroll', onScroll);
   if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
   loadK = 1;
   pinHeroFinal();
@@ -1425,7 +1495,8 @@ if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
     });
     if (tilts.size) tRaf = requestAnimationFrame(tiltTick); else { tRaf = null; tLast = 0; }
   };
-  const SEL = '.res, .sol, .dir, .rs, .person, .note';
+  // every glass card answers the pointer the same way the "3 reasons" cards do
+  const SEL = '.res, .sol, .dir, .rs, .person, .note, .scard, .verdict, .dcard, .panel, .tabs, .pcard, .plist li, .cinfo, .form, .big-phone';
   // the page moves under a still pointer while scrolling: let every card settle back instead of staying tilted
   addEventListener('scroll', () => {
     let any = false;
@@ -1440,7 +1511,9 @@ if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
       const r = el.getBoundingClientRect();
       const px = ((e.clientX - r.left) / r.width) * 2 - 1, py = ((e.clientY - r.top) / r.height) * 2 - 1;
       const s = tilts.get(el) || { x: 0, y: 0, tx: 0, ty: 0 };
-      s.tx = -py * MAX; s.ty = px * MAX;
+      // big panels lean less than small cards, so a wide block never swings hard
+      const m = clamp(1500 / Math.max(r.width, r.height), 1.2, MAX);
+      s.tx = -py * m; s.ty = px * m;
       tilts.set(el, s);
     }
     if (!tRaf && tilts.size) tRaf = requestAnimationFrame(tiltTick);
@@ -1461,20 +1534,20 @@ function layoutDeck(){
   deckOffsets = dcards.map(c => [cx - (c.offsetLeft + c.offsetWidth / 2), cy - (c.offsetTop + c.offsetHeight / 2)]);
   deckQ = -1; renderDeck();
 }
-const DECK_TILT = [[-9, -38], [3, 0], [11, 38]];   // [rotateZ, rotateY] of each card while stacked
+const DECK_TILT = [[-16, -62], [5, 0], [18, 62]];   // [rotateZ, rotateY] of each card while stacked
 function renderDeck(){
   let q;
   if (deckPinned) q = 1;
-  else { const r = deck.getBoundingClientRect(); q = clamp((innerHeight * 0.95 - r.top) / (innerHeight * 0.45), 0, 1); }
+  else { const r = deck.getBoundingClientRect(); q = clamp((innerHeight * 1.02 - r.top) / (innerHeight * 0.62), 0, 1); }
   if (Math.abs(q - deckQ) < 0.002 && q !== 1 && q !== 0) return;
   deckQ = q;
   dcards.forEach((c, i) => {
-    const t = clamp((q - i * 0.12) / 0.52, 0, 1), e = easeOut3(t), u = 1 - e;
+    const t = clamp((q - i * 0.16) / 0.5, 0, 1), e = easeOut3(t), u = 1 - e;
     const [dx, dy] = deckOffsets[i] || [0, 0];
     const [rz, ry] = DECK_TILT[i];
     c.style.transform = u < 0.001 ? '' :
-      `translate3d(${(dx * u).toFixed(1)}px,${(dy * u + (2 - i) * 10 * u + 26 * u).toFixed(1)}px,0) rotateZ(${(rz * u).toFixed(2)}deg) rotateY(${(ry * u).toFixed(2)}deg) scale(${(0.9 + 0.1 * e).toFixed(4)})`;
-    c.style.opacity = (0.35 + 0.65 * clamp(t * 1.6, 0, 1)).toFixed(3);
+      `translate3d(${(dx * u).toFixed(1)}px,${(dy * u + (2 - i) * 18 * u + 110 * u).toFixed(1)}px,0) rotateZ(${(rz * u).toFixed(2)}deg) rotateY(${(ry * u).toFixed(2)}deg) scale(${(0.78 + 0.22 * e).toFixed(4)})`;
+    c.style.opacity = (0.2 + 0.8 * clamp(t * 1.4, 0, 1)).toFixed(3);
     c.style.zIndex = String(10 - i);
   });
 }
@@ -1648,7 +1721,7 @@ function sTick(now){
       }
     }
   } else {
-    sCur += (sTarget - sCur) * (1 - Math.pow(1 - 0.13, dt / 16.667));   // a soft glide that still settles soon after the wheel stops
+    sCur += (sTarget - sCur) * (1 - Math.pow(1 - 0.11, dt / 16.667));   // a soft glide that still settles soon after the wheel stops
     if (Math.abs(sTarget - sCur) < 0.4) sCur = sTarget;
   }
   scrollTo(0, sCur);
@@ -1671,9 +1744,10 @@ addEventListener('wheel', e => {
   const nowW = performance.now(), gapW = nowW - lastWheelAt;
   lastWheelAt = nowW;
   if (Math.abs(d) >= 50) {
-    wheelBoost = gapW < 140 ? Math.min(2.4, wheelBoost + 0.2) : 1;
-    d *= 0.8 * wheelBoost;
-  }
+    // a calm step per notch; a fast run of notches speeds up only gently
+    wheelBoost = gapW < 140 ? Math.min(1.6, wheelBoost + 0.1) : 1;
+    d *= 0.6 * wheelBoost;
+  } else d *= 0.8;   // trackpads: a touch slower than 1:1
   sTarget = clamp(sTarget + d, 0, maxScroll());
   kickSmooth();
 }, { passive: false });
