@@ -1745,9 +1745,9 @@ addEventListener('wheel', e => {
   lastWheelAt = nowW;
   if (Math.abs(d) >= 50) {
     // a calm step per notch; a fast run of notches speeds up only gently
-    wheelBoost = gapW < 140 ? Math.min(1.6, wheelBoost + 0.1) : 1;
-    d *= 0.6 * wheelBoost;
-  } else d *= 0.8;   // trackpads: a touch slower than 1:1
+    wheelBoost = gapW < 140 ? Math.min(1.4, wheelBoost + 0.08) : 1;
+    d *= 0.45 * wheelBoost;
+  } else d *= 0.65;   // trackpads: slower than 1:1
   sTarget = clamp(sTarget + d, 0, maxScroll());
   kickSmooth();
 }, { passive: false });
