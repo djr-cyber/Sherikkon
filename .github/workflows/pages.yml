@@ -27,7 +27,7 @@ jobs:
       - name: Mark preview as noindex
         run: sed -i 's#<head>#<head><meta name="robots" content="noindex">#' deploy/index.html
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: deploy
       - id: deployment
