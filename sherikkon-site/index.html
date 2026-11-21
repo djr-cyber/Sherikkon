@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Консалтинг и Тренинги для Бизнеса | Sherikkon Consulting</title>
 <meta name="description" content="Профессиональные услуги консалтинга, корпоративные тренинги и разработку бизнес-стратегий для бизнеса. Работаем на узб, рус, тадж, анг языках">
-<meta name="theme-color" content="#CBCED3">
+<meta name="theme-color" content="#05070B">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -12 76 64'%3E%3Crect x='-3' y='-12' width='76' height='64' rx='16' fill='%23EBF1F6'/%3E%3Cpath fill='%23095486' d='M20.3 15.9h-2.2c-3.9-.1-4.2-.1-5-.3-2-.5-3.2-1.8-3.2-3.8 0-3.1 1.9-3.8 5-4.1 1.3-.1 3.9-.1 6.6-.2 1 0 2.4 0 4.3 0 .7 0 .8 0 1.3 0 2 0 3.3.1 4.6.2.5.1.7.1.8.1.6.1 1.5.3 2.2 1.1.8.9.9 2 .9 2.4h10c0-.7 0-1.4-.1-1.9-.2-3.5-1.1-5.2-3.1-6.6C40.3 1.5 37.8 1 30.5.9 28.5.9 26.1.8 23.1.8 14.6.8 10 1.1 7.1 1.9 1.8 3.2 0 5.8 0 12.4c0 5 1.1 7.8 3.6 9.2 2.4 1.2 5.3 1.6 12.3 1.6h10.8c3 0 4.6 0 5.5.1 1.1.1 1.5.2 2.2.5 1.6.6 2.6 2 2.6 4 0 .6-.1 1-.2 1.4-.4.8-1.1 1.4-1.6 1.7-.8.6-1.6.7-2.4.9-1.7.2-3.5.3-5.7.3-2 0-3.9 0-5.4 0-3.1 0-7.1-.1-8.3-.7-1.7-.7-2.2-1.7-2.3-3.7H.1v1.1c0 4.3 1 7 3.2 8 3.3 1.7 6.3 1.9 19.7 1.9 8.1 0 14.2-.4 17.1-1 4.4-.9 6.5-3.1 7-7.6.1-.9.2-2 .2-3.2 0-7.3-2.6-10.3-9.6-10.6-1.1-.1-3.4-.1-5.4-.2-1.4 0-2.5-.1-3-.1h-9.2z'/%3E%3Cpath fill='%23F6882B' d='M58.5 24.5c0 2.8-.7 4.1-2.4 4.7-1.4.6-2.5.7-7.6.8-.7 5.4-3.2 8-8.3 9.2-.3.1-.8.1-1.4.2h4.4c7.9 0 12.5-.1 14.9-.3 6.1-.5 9.2-2 10.8-5.3.8-1.7 1-3.6 1-9.3H58.5zM47 9.3c10.1 0 10.9.3 11.2 4.6h11.4v-1.2c0-5.7-1.5-9.2-4.7-10.7C61.6.3 58.4 0 43.8 0h-3.9c1.3.3 2.2.8 3.1 1.4 2.6 1.7 3.6 3.8 4 7.9z'/%3E%3C/svg%3E">
 <!-- DEPLOY STEP: patch og:url and og:image with the live absolute URL before zipping -->
 <meta property="og:type" content="website">
@@ -45,7 +45,7 @@
   --r-lg:30px;
   --r-md:22px;
   --wrap:1180px;
-  --halo:0 1px 0 rgba(255,255,255,.55),0 0 22px rgba(235,241,246,.95),0 0 46px rgba(235,241,246,.8);
+  --halo:0 1px 0 rgba(255,255,255,.55),0 0 18px rgba(235,241,246,.95);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -76,7 +76,7 @@ button{font:inherit;color:inherit}
 .glass{position:relative;isolation:isolate;border-radius:var(--r-lg);
   /* clear glass: the grid shows through sharp; volume comes from light on the edges, not from frosting */
   background:linear-gradient(155deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.16) 38%,rgba(255,255,255,.08) 62%,rgba(255,255,255,.22) 100%);
-  -webkit-backdrop-filter:blur(1.5px) saturate(150%) brightness(1.06);backdrop-filter:blur(1.5px) saturate(150%) brightness(1.06);
+  -webkit-backdrop-filter:none;backdrop-filter:none;   /* clear glass: no live blur behind every card, so scrolling stays light */
   box-shadow:
     inset 2px 3px 1px -1px rgba(255,255,255,.98),        /* hard specular on the lit top-left edge */
     inset -2px -3px 2px -1px rgba(20,26,36,.28),          /* shaded bottom-right edge */
@@ -161,18 +161,18 @@ button{font:inherit;color:inherit}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 /* hero: panes of glass in 3D. The container gives them one shared perspective */
 .hpanes{position:absolute;inset:0;pointer-events:none;perspective:1400px;perspective-origin:60% 45%}
-.hpane.glass{-webkit-backdrop-filter:none;backdrop-filter:none;position:absolute;left:0;top:0;border-radius:clamp(22px,2.4vw,34px);opacity:0;visibility:hidden;transform-origin:50% 50%;will-change:transform,opacity;backface-visibility:hidden;overflow:hidden}
+.hpane.glass{-webkit-backdrop-filter:none;backdrop-filter:none;position:absolute;left:0;top:0;border-radius:clamp(22px,2.4vw,34px);opacity:0;visibility:hidden;transform-origin:50% 50%;will-change:transform,opacity;backface-visibility:hidden}
 .hpane.glass:not(.tint-b):not(.tint-o){background:linear-gradient(155deg,rgba(255,255,255,.56) 0%,rgba(255,255,255,.30) 58%,rgba(255,255,255,.44) 100%)}
 .hpane.tint-b{background:linear-gradient(150deg,rgba(120,178,218,.50) 0%,rgba(9,84,134,.20) 60%,rgba(255,255,255,.22) 100%)}
 .hpane.tint-o{background:linear-gradient(150deg,rgba(255,206,160,.55) 0%,rgba(246,136,43,.22) 60%,rgba(255,255,255,.22) 100%)}
-/* the light band is its own layer and only slides (transform), so the glass is not repainted for it */
-.hpane>.sheen{position:absolute;top:0;bottom:0;left:0;width:260%;z-index:1;pointer-events:none;opacity:0;will-change:transform,opacity;background:linear-gradient(105deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.55) 48%,rgba(255,255,255,0) 60%)}
+/* light caught on the glass: a still highlight that only brightens and fades (opacity), so nothing is re-clipped per frame */
+.hpane>.sheen{position:absolute;inset:0;border-radius:inherit;z-index:1;pointer-events:none;opacity:0;will-change:opacity;background:linear-gradient(115deg,rgba(255,255,255,0) 28%,rgba(255,255,255,.5) 46%,rgba(255,255,255,.12) 56%,rgba(255,255,255,0) 70%)}
 .hpane-logo{position:absolute!important;left:50%;top:50%;width:62%;opacity:0;transform:translate(-50%,-50%)}
 .hpane-logo svg{display:block;width:100%;height:auto;filter:drop-shadow(0 8px 16px rgba(11,43,69,.28))}
 /* the two texts sit apart: the first top-left, the second bottom-right; both drift with the scroll */
-.band.b1{top:clamp(120px,21vh,220px);left:50%;right:auto;width:min(1120px,90vw);transform:translateX(-50%);text-align:center}
-.band.b1 .bt{font-size:clamp(34px,3.7vw,60px)}
-.band.b1 .bs{max-width:62ch;margin-inline:auto}
+.band.b1{top:clamp(120px,21vh,220px);left:50%;right:auto;width:min(1280px,92vw);transform:translateX(-50%);text-align:center}
+.band.b1 .bt{font-size:clamp(40px,5vw,84px)}
+.band.b1 .bs{max-width:54ch;margin-inline:auto;font-size:clamp(20px,1.9vw,30px)}
 .band.b4{left:50%;right:auto;top:auto;bottom:clamp(24px,calc(43vh - 240px),15vh);width:min(1120px,90vw);transform:translateX(-50%);text-align:center}
 .band.b4 .bt{font-size:clamp(34px,3.7vw,60px);margin-inline:auto}
 .band.b4 .cta-row{justify-content:center}
@@ -213,7 +213,7 @@ button{font:inherit;color:inherit}
   .band.b4 .bt{font-size:clamp(30px,8vw,44px)}
   .band.b4 .cta-row{justify-content:center}
   .band.b1{top:92px;bottom:auto;left:16px;right:16px;width:auto;transform:none;text-align:center}
-  .band.b1 .bt{font-size:clamp(30px,8vw,44px)}
+  .band.b1 .bt{font-size:clamp(34px,9.2vw,52px)}
   .band::before{inset:-14% -8%}
   .band .bt{font-size:clamp(32px,8.6vw,48px)}
   .cue{bottom:18px}
@@ -435,7 +435,7 @@ html.cv-all main > .sec{content-visibility:visible}
 .person .plate.glass{background:linear-gradient(155deg,rgba(250,251,252,.88),rgba(238,240,243,.78) 55%,rgba(246,247,249,.86));-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
 .person .ph,.bio-top img{background:linear-gradient(165deg,#F2F3F5 0%,#D6D9DE 100%)!important}
 /* the stack is the same clear glass as the rest; a card that gets covered fades by half a tone instead */
-.scard.glass{-webkit-backdrop-filter:blur(3px) saturate(150%) brightness(1.06);backdrop-filter:blur(3px) saturate(150%) brightness(1.06);opacity:calc(1 - var(--d,0) * .55)}
+.scard.glass{opacity:calc(1 - var(--d,0) * .55)}
 .glass.tint-blue{background:linear-gradient(155deg,rgba(120,175,215,.34) 0%,rgba(255,255,255,.12) 50%,rgba(255,255,255,.22) 100%)}
 /* background: a still studio surface, light at the top left falling to graphite at the bottom right, with a thin grid.
    Nothing blurred, nothing moving: the glass above it is what carries the life. */
@@ -445,7 +445,7 @@ html.cv-all main > .sec{content-visibility:visible}
 .env::before{content:"";position:absolute;inset:0;
   background-image:linear-gradient(to right,rgba(22,26,34,.34) 1px,transparent 1px),linear-gradient(to bottom,rgba(22,26,34,.34) 1px,transparent 1px);
   background-size:clamp(220px,27vw,400px) clamp(220px,27vw,400px);background-position:calc(50% + 6vw) 46%}
-:root{--halo:0 1px 0 rgba(255,255,255,.5),0 0 22px rgba(208,211,216,.95),0 0 46px rgba(208,211,216,.8)}
+:root{--halo:0 1px 0 rgba(255,255,255,.5),0 0 18px rgba(208,211,216,.95)}
 .band::before{background:radial-gradient(closest-side,rgba(210,213,218,.88) 0%,rgba(210,213,218,.62) 55%,rgba(210,213,218,0) 100%)}
 
 /* ---------- problems: the question holds still, the problems pile up on top of each other ---------- */
@@ -519,6 +519,10 @@ html.cv-all main > .sec{content-visibility:visible}
 
 /* ---------- about + team ---------- */
 .lede.wide{max-width:72ch}
+/* Apple-style scroll moments: intro words light up one by one as the paragraph comes up the screen.
+   --q is the paragraph's progress (written by JS); with no JS, or reduced motion, it stays 1 and every word is lit */
+.lit-split .lw{opacity:clamp(.13,calc(var(--q,1) * (var(--n,1) + 6) - var(--wi,0)),1)}
+.moment-head,.moment-grow{transform-origin:0 100%}
 .h3{margin:64px 0 8px;font-weight:800;font-size:clamp(26px,2.6vw,38px);line-height:1.1;letter-spacing:-.01em}
 .team{align-items:stretch}
 .person{display:flex;flex-direction:column}
@@ -627,12 +631,68 @@ body.paused *,body.paused *::before,body.paused *::after,
   .promise .tick{background:var(--accent);color:var(--ink)}
   .joinmark{--h:1}
 }
+
+/* ================= dark space theme =================
+   The site sits in front of a slow flight through the stars. Everything below re-tones the light design for it:
+   light type with a dark halo, dark liquid glass with a pale blue rim, quiet translucent chips and fields.
+   The light rules above stay untouched, so the theme lives in this one block. */
+:root{color-scheme:dark;
+  --canvas:#05070B;--ink:#EEF3F8;--ink-2:#A9B9CA;--blue:#7CB9E8;--blue-soft:#8FC4EC;--line:rgba(150,200,240,.26);
+  --halo:0 1px 2px rgba(0,0,0,.6),0 0 18px rgba(3,6,12,.92)}
+body{background:#05070B}
+.env,.env{background:#05070B}
+.env::before{display:none}
+.env .space{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.env::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 100% at 50% 45%,rgba(5,7,11,0) 40%,rgba(5,7,11,.55) 100%)}
+.skip{background:var(--accent);color:#1B0E02}
+/* dark liquid glass: smoky, see-through, a pale blue rim catching the light */
+.glass{background:linear-gradient(155deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.05) 38%,rgba(255,255,255,.03) 62%,rgba(255,255,255,.08) 100%),rgba(10,15,24,.58);
+  box-shadow:inset 2px 3px 1px -1px rgba(255,255,255,.38),inset -2px -3px 2px -1px rgba(0,0,0,.45),inset 0 16px 26px -14px rgba(255,255,255,.1),inset 0 -20px 30px -16px rgba(140,190,235,.08),inset 0 0 0 1px rgba(255,255,255,.07),0 1px 1px rgba(0,0,0,.3),0 24px 46px -18px rgba(0,0,0,.7)}
+.glass::before{background:linear-gradient(135deg,rgba(170,214,245,.8) 0%,rgba(150,200,240,.32) 30%,rgba(150,200,240,.14) 52%,rgba(150,200,240,.3) 72%,rgba(170,214,245,.72) 100%)}
+.glass::after{background:radial-gradient(420px circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.16),rgba(255,255,255,0) 60%)}
+.glass.tint-blue{background:linear-gradient(155deg,rgba(90,160,215,.3) 0%,rgba(255,255,255,.05) 50%,rgba(255,255,255,.08) 100%),rgba(10,15,24,.58)}
+.nav.glass,.sheet.glass{background:linear-gradient(155deg,rgba(255,255,255,.12),rgba(255,255,255,.04) 55%,rgba(255,255,255,.08)),rgba(12,18,28,.6)}
+.person .plate.glass{background:linear-gradient(155deg,rgba(255,255,255,.12),rgba(255,255,255,.04) 55%,rgba(255,255,255,.08)),rgba(12,18,28,.72)}
+.bio{background:linear-gradient(140deg,rgba(255,255,255,.1),rgba(255,255,255,.03)),rgba(13,19,29,.96)}
+.bio-scrim{background:rgba(2,4,8,.55)}
+.pcard,.person .ph{background:#0d141d}
+.pcard .cap.glass{background:linear-gradient(140deg,rgba(255,255,255,.1),rgba(255,255,255,.03)),rgba(10,15,24,.82)}
+/* the brand mark keeps its colours; a soft light behind it lifts the deep blue off the dark */
+.brand svg,.foot svg{filter:drop-shadow(0 0 6px rgba(200,225,250,.35))}
+/* small surfaces: icon tiles, chips, tags, switches, fields */
+.links a:hover,.sheet a:hover{background:rgba(255,255,255,.1)}
+.langs button[aria-pressed="true"]{background:rgba(255,255,255,.16);color:var(--ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 2px 8px rgba(0,0,0,.4)}
+.menu-btn{background:rgba(255,255,255,.1)}
+.nav-phone{background:linear-gradient(140deg,rgba(255,255,255,.16),rgba(255,255,255,.05) 55%,rgba(255,255,255,.1))}
+.ph-ico{background:linear-gradient(150deg,rgba(255,255,255,.22),rgba(95,163,207,.25));box-shadow:inset 0 1px 1px rgba(255,255,255,.35),0 4px 12px -4px rgba(0,0,0,.6)}
+.dots button span{background:rgba(12,18,28,.85);color:var(--ink)}
+.res .fig.ico,.svc .ico,.dico,.dnum,.checks .tk,.bio-x{background-color:rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 0 0 1px rgba(150,200,240,.2),0 6px 16px -6px rgba(0,0,0,.6)}
+.sico{background:linear-gradient(150deg,rgba(255,255,255,.14),rgba(246,136,43,.22));box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 6px 16px -6px rgba(0,0,0,.6);color:#FFB070}
+.qa summary::after{background-color:rgba(255,255,255,.12)}
+.ring .bg{fill:rgba(255,255,255,.08);stroke:rgba(150,200,240,.25)}
+.tags span,.chips li{background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(150,200,240,.2);color:var(--ink)}
+.tabs .pill{background:linear-gradient(150deg,rgba(255,255,255,.2),rgba(255,255,255,.08));box-shadow:inset 0 1px 1px rgba(255,255,255,.3),0 0 0 1px rgba(150,200,240,.25),0 10px 24px -10px rgba(0,0,0,.6)}
+.field input,.field textarea{background:rgba(255,255,255,.06);border-color:rgba(150,200,240,.3);color:var(--ink);box-shadow:inset 0 2px 4px rgba(0,0,0,.35)}
+.field input:focus,.field textarea:focus{background:rgba(255,255,255,.1)}
+.legal{border-top-color:rgba(150,200,240,.18)}
+/* orange stays orange; its label stays dark so it reads */
+.btn-accent,.promises.lit .promise .tick,.promise .tick{color:#1B0E02}
+/* the first screen: a dark halo behind the words instead of a light one, smokier panes */
+.band::before{background:radial-gradient(closest-side,rgba(4,6,10,.78) 0%,rgba(4,6,10,.5) 55%,rgba(4,6,10,0) 100%)}
+.hpane.glass:not(.tint-b):not(.tint-o){background:linear-gradient(155deg,rgba(255,255,255,.2) 0%,rgba(255,255,255,.06) 58%,rgba(255,255,255,.12) 100%),rgba(10,15,24,.35)}
+.hpane.tint-b{background:linear-gradient(150deg,rgba(95,165,220,.42) 0%,rgba(20,100,160,.28) 60%,rgba(120,180,230,.12) 100%),rgba(8,14,24,.35)}
+.hpane.tint-o{background:linear-gradient(150deg,rgba(255,170,100,.4) 0%,rgba(246,136,43,.26) 60%,rgba(255,190,130,.1) 100%),rgba(8,14,24,.35)}
+.hpane.glass.top{background:linear-gradient(155deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.04) 58%,rgba(255,255,255,.1) 100%),rgba(11,17,27,.82)}
+.person .ph,.bio-top img{background:linear-gradient(165deg,#1d2a38 0%,#0c121a 100%)!important}
+.checks .tk{background-color:rgba(124,185,232,.28)}
+.cue i{border-color:rgba(238,243,248,.55)}
+@media (prefers-reduced-motion: reduce){.promise .tick{color:#1B0E02}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main" data-t="skip">Перейти к содержанию</a>
 
-<div class="env" aria-hidden="true"></div>
+<div class="env" aria-hidden="true"><video class="space" id="space" muted loop playsinline preload="none" tabindex="-1" poster="assets/video/stars-poster.jpg"></video></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -1155,6 +1215,7 @@ function applyLang(l){
   $$('[data-tags]').forEach(el => { el.replaceChildren(...d[el.dataset.tags].split('|').map((t, j) => { const s = document.createElement(el.tagName === 'UL' ? 'li' : 'span'); s.textContent = t; s.style.setProperty('--j', j); return s; })); });
   $$('.langs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === l)));
   splitBands();
+  splitLight();
   store.set('sk-lang', l);
   const u = new URL(location.href);
   if (l === 'ru') u.searchParams.delete('lang'); else u.searchParams.set('lang', l);
@@ -1301,11 +1362,9 @@ function drawScene(){
     const st = state[i];
     if (tf !== st.tf) { el.style.transform = tf; st.tf = tf; }
     if (Math.abs(o - st.o) > 0.003) { el.style.opacity = o.toFixed(3); el.style.visibility = o > 0.002 ? 'visible' : 'hidden'; st.o = o; }
-    // light runs across the glass as it turns
-    const shT = 'translateX(' + mixv(24.6, -86, smoothstep(p, 0.05 + i * 0.03, 0.85)).toFixed(1) + '%)';
-    const shO = smoothstep(p, 0.05, 0.2) * (1 - smoothstep(p, 0.78, 0.9));
-    if (shT !== st.sx) { st.sh.style.transform = shT; st.sx = shT; }
-    if (Math.abs(shO - st.so) > 0.003) { st.sh.style.opacity = shO.toFixed(3); st.so = shO; }
+    // light catches each pane in turn as the stack rotates
+    const shO = smoothstep(p, 0.06 + i * 0.05, 0.22 + i * 0.05) * (1 - smoothstep(p, 0.5 + i * 0.04, 0.82));
+    if (Math.abs(shO - st.so) > 0.01 || (shO === 0 && st.so !== 0)) { st.sh.style.opacity = shO.toFixed(3); st.so = shO; }
   });
   const lo = smoothstep(p, 0.70, 0.86);
   if (Math.abs(lo - (paneLogo._o ?? -1)) > 0.004) {
@@ -1814,6 +1873,77 @@ addEventListener('resize', () => {
   if (coarse && innerWidth === lastW && Math.abs(innerHeight - lastH) < 140) return;
   lastW = innerWidth; lastH = innerHeight;
   clearTimeout(rsT); rsT = setTimeout(() => { layoutScene(); relayoutLower(); if (scrubOn) { bands.forEach(b => { b.op = -1; b.k = -1; }); onScroll(); kick(); } else renderScene(1, 0); }, 120); });
+
+/* ================= Apple-style scroll moments =================
+   As a block comes up the screen its intro lights up word by word, its headline settles in from a touch larger,
+   photos ease in from a slight zoom and the big figures grow into place. Scroll position drives every one of them,
+   both ways; only scale and opacity change, and only when the value does. */
+const LIGHT_SEL = '.lede, .pains-foot';
+const moments = [];
+function splitLight(){
+  $$(LIGHT_SEL).forEach(el => {
+    const text = el.textContent;
+    if (!text.trim()) return;
+    const words = text.split(/ +/);
+    el.textContent = '';
+    words.forEach((w, i) => { if (i) el.append(' '); const s = document.createElement('span'); s.className = 'lw'; s.style.setProperty('--wi', i); s.textContent = w; el.appendChild(s); });
+    el.style.setProperty('--n', words.length);
+    el.classList.add('lit-split');
+  });
+  moments.forEach(m => { m.v = -1; });
+  queueMoments();
+}
+const momentIO = new IntersectionObserver(es => { es.forEach(e => { const m = e.target._moment; if (m) m.on = e.isIntersecting; }); queueMoments(); }, { rootMargin: '25% 0px' });
+function addMoment(el, kind){
+  const m = { el, kind, v: -1, on: false };
+  el._moment = m; moments.push(m); momentIO.observe(el);
+  if (kind === 'head' || kind === 'grow') el.classList.add('moment-' + kind);
+}
+$$(LIGHT_SEL).forEach(el => addMoment(el, 'light'));
+$$('main .h2').forEach(el => addMoment(el, 'head'));
+$$('.pcard img, .person .ph img').forEach(el => addMoment(el, 'zoom'));
+$$('#results .big, .res .fig:not(.ico)').forEach(el => addMoment(el, 'grow'));
+let momentRaf = null;
+function queueMoments(){ if (momentRaf === null && !rmq.matches) momentRaf = requestAnimationFrame(drawMoments); }
+function drawMoments(){
+  momentRaf = null;
+  const H = innerHeight, narrow = innerWidth <= 720;
+  moments.forEach(m => {
+    if (!m.on) return;
+    const r = m.el.getBoundingClientRect();
+    let v;
+    if (m.kind === 'light') {
+      // lit from when the paragraph's top reaches the lower part of the screen until it is a little above the middle
+      v = clamp((H * 0.9 - r.top) / (H * 0.5), 0, 1);
+      if (Math.abs(v - m.v) > 0.012 || (v === 1 && m.v !== 1) || (v === 0 && m.v !== 0)) { m.el.style.setProperty('--q', v.toFixed(3)); m.v = v; }
+      return;
+    }
+    if (m.kind === 'head') { const t = easeIO(clamp((H - r.top) / (H * 0.42), 0, 1)); v = 1 + (narrow ? 0.05 : 0.12) * (1 - t); }
+    else if (m.kind === 'zoom') { const t = easeIO(clamp((H * 1.05 - r.top) / (H * 0.7), 0, 1)); v = 1 + 0.16 * (1 - t); }
+    else { const t = easeIO(clamp((H * 0.98 - r.top) / (H * 0.36), 0, 1)); v = 0.72 + 0.28 * t; }
+    if (Math.abs(v - m.v) > 0.0006 || (v === 1 && m.v !== 1)) { m.el.style.scale = v === 1 ? '' : v.toFixed(4); m.v = v; }
+  });
+}
+// reduced motion: every word lit, every scale at rest
+function settleMoments(){ moments.forEach(m => { m.el.style.setProperty('--q', '1'); m.el.style.scale = ''; m.v = -1; }); }
+addEventListener('scroll', queueMoments, { passive: true });
+addEventListener('resize', queueMoments);
+rmq.addEventListener('change', e => { if (e.matches) settleMoments(); else queueMoments(); });
+
+/* ================= the space background =================
+   A slow flight through the stars behind the whole site. The poster (a still of the first frame) paints at once;
+   the 0.7 MB loop starts after the page has loaded. Reduced motion and data saver keep the still. */
+const space = $('#space');
+function spaceOn(){ return !rmq.matches && !(navigator.connection && navigator.connection.saveData); }
+function playSpace(){
+  if (!space || !spaceOn() || document.hidden) return;
+  // full 1080p on large screens; phones and small windows get the lighter 720p loop
+  if (!space.src) space.src = Math.max(innerWidth, innerHeight) * Math.min(devicePixelRatio || 1, 2) > 1600 && !LITE ? 'assets/video/stars-bg.mp4' : 'assets/video/stars-bg-720.mp4';
+  const p = space.play(); if (p && p.catch) p.catch(() => {});
+}
+if (document.readyState === 'complete') playSpace(); else addEventListener('load', playSpace, { once: true });
+document.addEventListener('visibilitychange', () => { if (document.hidden) space && space.pause(); else playSpace(); });
+rmq.addEventListener('change', e => { if (e.matches) space && space.pause(); else playSpace(); });
 
 layoutScene();
 applyLang(pickLang());
